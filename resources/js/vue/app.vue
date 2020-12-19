@@ -5,7 +5,7 @@
             <add-item-form />
         </div>
         <div>
-            <list-view />
+            <list-view :items="items" />
         </div>
     </div>
 </template>
@@ -13,13 +13,30 @@
 <script>
     import addItemForm from "./addForm"
     import listView from "./listView"
-    import listItem from "./listItem"
 
     export default {
         components: {
             addItemForm,
             listView,
-            listItem,
+        },
+        data: function() {
+            return{
+                items: [],
+            }
+        },
+        methods: {
+            getList () {
+                axios.get('api/items')
+                .then(response => {
+                    this.items = response.data
+                })
+                .catch( error => {
+                    console.log(error);
+                })
+            }
+        },
+        created() {
+            this.getList();
         }
     }
 </script>

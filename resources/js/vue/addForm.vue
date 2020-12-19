@@ -2,6 +2,7 @@
     <div id="addItem">
         <input type="text" v-model="item.name" />
         <font-awesome-icon icon="plus-square"
+        @click="addItem()"
         :class=" [ item.name ? 'active' : 'inActive', 'plus']"
         />
     </div>
@@ -14,6 +15,25 @@
                 item: {
                     name: "",
                 }
+            }
+        },
+
+        methods: {
+            addItem() {
+                if( this.item.name == '') {
+                    return;
+                }
+                axios.post('api/item/store', {
+                    item: this.item
+                })
+                .then( response => {
+                    if(response.status == 201){
+                        this.item.name == "";
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
             }
         }
     }
