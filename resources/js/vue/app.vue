@@ -1,15 +1,40 @@
 <template>
-    <div>
-        <h1>Vue pages</h1>
+    <div class="todoListContainer">
+        <div class="heading">
+            <h2 id="title">Todo List</h2>
+            <add-item-form />
+        </div>
+        <div>
+            <list-view />
+        </div>
     </div>
 </template>
 
 <script>
-    export default {
+    import addItemForm from "./addForm"
+    import listView from "./listView"
+    import listItem from "./listItem"
 
+    export default {
+        components: {
+            addItemForm,
+            listView,
+            listItem,
+        }
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.todoListContainer {
+    width: 350px;
+    margin: auto;
+}
+.heading {
+    background: #e6e6e6;
+    padding: 10px;
+}
 
+#title{
+    text-align: center;
+}
 </style>
