@@ -5,7 +5,9 @@
             <add-item-form />
         </div>
         <div>
-            <list-view :items="items" />
+            <list-view :items="items"
+            v-on:reloadlist="getList()"
+            />
         </div>
     </div>
 </template>
@@ -21,7 +23,7 @@
         },
         data: function() {
             return{
-                items: [],
+                items: []
             }
         },
         methods: {

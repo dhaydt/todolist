@@ -1,11 +1,13 @@
 <template>
     <div>
         <h3>Task Available</h3>
-        <div v-for="(item, index) in items" :key="index"></div>
+        <div v-for="(item, index) in items" :key="index">
         <list-item
         :item="item"
         class="item"
+        v-on:itemchanged="$emit('reloadlist')"
         />
+        </div>
     </div>
 </template>
 
@@ -15,7 +17,7 @@
     export default {
         props: ['items'],
         components: {
-            listItem,
+            listItem
         }
     }
 </script>
