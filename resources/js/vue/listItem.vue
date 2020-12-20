@@ -14,7 +14,7 @@
 
 <script>
     export default {
-        name: "item",
+        // name: "item",
         props: ['item'],
         methods: {
             updateCheck() {

@@ -29,8 +29,8 @@
                 })
                 .then( response => {
                     if(response.status == 201){
-                        this.item.name == "";
-                        location.reload();
+                        this.item.name = "";
+                        this.$emit('reloadlist');
                     }
                 })
                 .catch(error => {

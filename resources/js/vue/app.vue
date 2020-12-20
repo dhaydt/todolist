@@ -2,7 +2,9 @@
     <div class="todoListContainer">
         <div class="heading">
             <h2 id="title">Todo List</h2>
-            <add-item-form />
+            <add-item-form
+            v-on:reloadlist="getList()"
+            />
         </div>
         <div>
             <list-view :items="items"
@@ -51,6 +53,7 @@
 .heading {
     background: #e6e6e6;
     padding: 10px;
+    margin-top: 30px;
 }
 
 #title{
